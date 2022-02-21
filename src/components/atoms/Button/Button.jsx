@@ -11,17 +11,17 @@ const sizes = {
   large:'px-5 py-3 rounded-lg text-lg',
 }
 
-cons
 
+const disabledClass = (disable) => disable ? 'cursor-not-allowed bg-gray' : ''
 
 function Button(props) {
-  const { type, onClick, disabled, rounded, className, label, size, backgroundColor} = props
+  const { type, onClick, disabled, className, label, size, backgroundColor, color} = props
 
   const classProps = classnames(
     styles.button,
     sizes[size],
-    className
-
+    className,
+    disabledClass(disabled)
   )
 
   return (
