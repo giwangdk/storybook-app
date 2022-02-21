@@ -25,7 +25,7 @@ function Button(props) {
   )
 
   return (
-    <button className={classProps} onClick={onClick} type={type} disabled={disabled} style={backgroundColor && {backgroundColor}}>{label}</button>
+    <button className={classProps} onClick={onClick} type={type} disabled={disabled} style={{backgroundColor, color}}>{label}</button>
   )
 }
 
@@ -38,7 +38,8 @@ Button.propTypes = {
   label: PropTypes.string,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   backgroundColor: PropTypes.string,
-  rounded: PropTypes.bool
+  rounded: PropTypes.bool,
+  color:PropTypes.string,
 }
 
 Button.defaultProps = {
@@ -49,6 +50,7 @@ Button.defaultProps = {
   label: null,
   size: 'medium',
   backgroundColor: null,
-  rounded:true
+  rounded:true,
+  color:null
 }
 export default Button
