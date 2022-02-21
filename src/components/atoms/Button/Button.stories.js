@@ -7,4 +7,8 @@ export default {
     component:Button
 }
 
-export const Primary = () =><Button>Hai!</Button>
+//we create a "templatr" of how args maps to rendering
+const Template = (args) => <Button {...args}/>
+
+export const Primary = Template.bind({})
+Primary.args = { backgroundColor: '#ff2', label: 'Button' };
