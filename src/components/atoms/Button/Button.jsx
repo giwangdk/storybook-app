@@ -4,7 +4,7 @@ import styles from './index.css';
 import PropTypes from 'prop-types'
 
 function Button(props) {
-  const { type, onClick, disabled, className, label, size} = props
+  const { type, onClick, disabled, className, label, size, backgroundColor} = props
   
   const classProps = classnames(
     styles.button,
@@ -13,7 +13,7 @@ function Button(props) {
   )
 
   return (
-    <button className={classProps} onClick={onClick} type={type} disabled={disabled}>{label}</button>
+    <button className={classProps} onClick={onClick} type={type} disabled={disabled} style={backgroundColor && {backgroundColor}}>{label}</button>
   )
 }
 
@@ -24,6 +24,17 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   className: PropTypes.string,
   label: PropTypes.string,
-  size : PropTypes.oneOf(['small', 'medium', 'large'])
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  backgroundColor:PropTypes.string
+}
+
+Button.defaultProps = {
+  type:'submit',
+  onClick: () => { },
+  disabled: false,
+  className: null,
+  label: null,
+  size: 'medium',
+  backgroundColor:null
 }
 export default Button
